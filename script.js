@@ -162,7 +162,7 @@ function drawStar() {
         }, '-=0')
         .from('.treeBottomMask', {
             duration: 2,
-            drawSVG: '0% 0%',
+            // drawSVG: '0% 0%',
             stroke: '#FFF',
             ease: 'linear'
         }, '-=2')
@@ -173,7 +173,7 @@ drawStar();
 
 mainTl.from(['.treePathMask', '.treePotMask'], {
     duration: 6,
-    drawSVG: '0% 0%',
+    // drawSVG: '0% 0%',
     stroke: '#FFF',
     stagger: {
         each: 6
