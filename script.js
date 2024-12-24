@@ -1,10 +1,10 @@
 MorphSVGPlugin.convertToPath('polygon');
 var xmlns = "http://www.w3.org/2000/svg",
     xlinkns = "http://www.w3.org/1999/xlink",
-    select = function(s) {
+    select = function (s) {
         return document.querySelector(s);
     },
-    selectAll = function(s) {
+    selectAll = function (s) {
         return document.querySelectorAll(s);
     },
     pContainer = select('.pContainer'),
@@ -49,9 +49,9 @@ let treePath = getSVGPoints('.treePath')
 var treeBottomPath = getSVGPoints('.treeBottomPath')
 
 var mainTl = gsap.timeline({
-        delay: 0,
-        repeat: 0
-    }),
+    delay: 0,
+    repeat: 0
+}),
     starTl;
 
 function flicker(p) {
@@ -105,11 +105,11 @@ function playParticle(p) {
     var tl = gsap.timeline();
     tl.to(p, {
         duration: gsap.utils.random(0.61, 6),
-        physics2D: {
-            velocity: gsap.utils.random(-23, 23),
-            angle: gsap.utils.random(-180, 180),
-            gravity: gsap.utils.random(-6, 50)
-        },
+        // physics2D: {
+        //     velocity: gsap.utils.random(-23, 23),
+        //     angle: gsap.utils.random(-180, 180),
+        //     gravity: gsap.utils.random(-6, 50)
+        // },
         scale: 0,
         rotation: gsap.utils.random(-123, 360),
         ease: 'power1',
@@ -134,16 +134,16 @@ function drawStar() {
         onUpdate: playParticle
     })
     starTl.to('.pContainer, .sparkle', {
-            duration: 6,
-            motionPath: {
-                path: '.treePath',
-                autoRotate: false
-            },
-            ease: 'linear'
-        })
+        duration: 6,
+        motionPath: {
+            path: '.treePath',
+            autoRotate: false
+        },
+        ease: 'linear'
+    })
         .to('.pContainer, .sparkle', {
             duration: 1,
-            onStart: function() {
+            onStart: function () {
                 showParticle = false
             },
             x: treeBottomPath[0].x,
@@ -151,7 +151,7 @@ function drawStar() {
         })
         .to('.pContainer, .sparkle', {
             duration: 2,
-            onStart: function() {
+            onStart: function () {
                 showParticle = true
             },
             motionPath: {
@@ -172,15 +172,15 @@ createParticles();
 drawStar();
 
 mainTl.from(['.treePathMask', '.treePotMask'], {
-        duration: 6,
-        drawSVG: '0% 0%',
-        stroke: '#FFF',
-        stagger: {
-            each: 6
-        },
-        duration: gsap.utils.wrap([6, 1, 2]),
-        ease: 'linear'
-    })
+    duration: 6,
+    drawSVG: '0% 0%',
+    stroke: '#FFF',
+    stagger: {
+        each: 6
+    },
+    duration: gsap.utils.wrap([6, 1, 2]),
+    ease: 'linear'
+})
     .from('.treeStar', {
         duration: 3,
         scaleY: 0,
