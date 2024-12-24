@@ -105,11 +105,11 @@ function playParticle(p) {
     var tl = gsap.timeline();
     tl.to(p, {
         duration: gsap.utils.random(0.61, 6),
-        // physics2D: {
-        //     velocity: gsap.utils.random(-23, 23),
-        //     angle: gsap.utils.random(-180, 180),
-        //     gravity: gsap.utils.random(-6, 50)
-        // },
+        physics2D: {
+            velocity: gsap.utils.random(-23, 23),
+            angle: gsap.utils.random(-180, 180),
+            gravity: gsap.utils.random(-6, 50)
+        },
         scale: 0,
         rotation: gsap.utils.random(-123, 360),
         ease: 'power1',
@@ -162,7 +162,7 @@ function drawStar() {
         }, '-=0')
         .from('.treeBottomMask', {
             duration: 2,
-            // drawSVG: '0% 0%',
+            drawSVG: '0% 0%',
             stroke: '#FFF',
             ease: 'linear'
         }, '-=2')
@@ -173,7 +173,7 @@ drawStar();
 
 mainTl.from(['.treePathMask', '.treePotMask'], {
     duration: 6,
-    // drawSVG: '0% 0%',
+    drawSVG: '0% 0%',
     stroke: '#FFF',
     stagger: {
         each: 6
